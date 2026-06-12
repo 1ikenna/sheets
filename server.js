@@ -8,6 +8,14 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 /**
+ * GET /
+ * Root endpoint directing users to the correct API path
+ */
+app.get('/', (req, res) => {
+  res.send("THIS IS THE CORRECT API TO GET WAIVER DATA - https://sheets-6qb6.onrender.com/sheets-data");
+});
+
+/**
  * GET /sheets-data
  * Fetches and returns the processed Google Sheets data
  */
@@ -38,6 +46,5 @@ app.get('/sheets-data', async (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running and listening on http://localhost:${PORT}`);
-  console.log(`📊 Access sheet data at http://localhost:${PORT}/sheets-data`);
+  console.log(`📊 Access sheet data at https://sheets-6qb6.onrender.com/sheets-data`);
 });
