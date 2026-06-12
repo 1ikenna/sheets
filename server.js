@@ -1,11 +1,20 @@
 const express = require('express');
 const { extractSheetData } = require('./sheets'); // Assumes sheets.js is in the same directory
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware to handle JSON payloads
+app.use(cors());
 app.use(express.json());
+
+// for more specific configuration:
+// app.use(cors({
+//   origin: ['http://localhost:3000', 'https://your-react-app.com'],
+//   methods: ['GET'],
+//   credentials: true
+// }));
 
 /**
  * GET /
